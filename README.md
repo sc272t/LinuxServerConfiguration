@@ -6,12 +6,9 @@ Host Amazon Lightsail Server: 52.23.210.235
 ssh port : 2200
 catalog Application url : http://52.23.210.235.xip.io
 
-Login to server as grader user
+### Login to server as grader user
  $ ssh -i ~/.ssh/grader grader@52.23.210.235 -p 2200
  Passphrase: grader007
-
-	grader ssh key:  grader.pub
-	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwYCORHdzOhTszU5FaAB6fyuWWnXBXoYW9EZp2lyo3f1zBWcduyBs/zH1jmwGra1mGxsa2T+/0y2652Ih4uBOdWQhawfnmHb5EbuuowhqAIxn733QJJ8C1poQXov/TZu1VrubL5o7pBIx0rTUC1cyQ7Um8+1F6oxOjdVyrpb1CMXiKp+nHfxgJYbyvdS71InOcfrq8p2VmIaputgRPdNcSPnRnco+7zKBq8E+dC/Hr9Tzrlga5jW6ttmZ1I+XYk00Hac5Mgc08VLYTuuh2443Vz41bO9ZnMhrpHUfzbxHlvTul7z3Qpb+vRCMMGE7CT+GrzbfDsRjaqJ1CxoFAhzWr
 
 ## Updated all currently installed packages
 	$ sudo apt-get update 
@@ -27,9 +24,10 @@ Login to server as grader user
 ## Only allow connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 	Run ssh on port 2200
 	Added 2200 TCP port on Amazon Lightsail server settings
-	Edited ssh config sudo vi /etc/ssh/sshd_config to update ssh 22 to 2200
-	# What ports, IPs and protocols we listen for
-	Port 2200
+	Edited ssh config 
+	$ sudo vi /etc/ssh/sshd_config to update ssh 22 to 2200
+		# What ports, IPs and protocols we listen for
+		Port 2200
    
    $ sudo service ssh restart
 
