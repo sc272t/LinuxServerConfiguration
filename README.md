@@ -81,7 +81,6 @@ The application can be accessed at http://52.23.210.235.xip.io
 	$ sudo pip install psycopg2
 	$ sudo -H pip install oauth2client
 
-
 ### Configure postgresql
 	CREATE USER catalog;.
 	ALTER ROLE catalog CREATEDB;
