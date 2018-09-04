@@ -2,6 +2,7 @@
 This project is to configure a Ubuntu linux server from scratch and deploy a flask web application Catalog with a Postgresql database.
 The application can be accessed at http://52.23.210.235.xip.io
 
+### Server and application URL
 	Host Amazon Lightsail Server: 52.23.210.235
 	ssh port : 2200
 	Catalog Application url : http://52.23.210.235.xip.io
@@ -10,6 +11,18 @@ The application can be accessed at http://52.23.210.235.xip.io
 	$ ssh -i ~/.ssh/grader grader@52.23.210.235 -p 2200
 	Passphrase: grader007
 
+	grader.pub in submission notes
+	
+## Added grader user and added ssh-key generated for grader
+	$ sudo adduser grader
+	$ su - grader
+	$ sudo vi /etc/sudoers.d/grader grader ALL=(ALL) NOPASSWD:ALL
+	$ sudo -su grader
+	$ cd /home/grader
+	$ cd .ssh
+	$ sudo vi authorized_keys   and paste grader.pub
+	$ chmod 644 authorized_keys
+	
 ## Updated all currently installed packages
 	$ sudo apt-get update 
 	$ sudo apt-get upgrade
@@ -44,16 +57,6 @@ The application can be accessed at http://52.23.210.235.xip.io
 	$ sudo ufw deny 22
 	$ sudo ufw enable
 	$ sudo ufw status
-   
-## Added grader user and added ssh-key generated for grader
-	$ sudo adduser grader
-	$ su - grader
-	$ sudo vi /etc/sudoers.d/grader grader ALL=(ALL) NOPASSWD:ALL
-	$ sudo -su grader
-	$ cd /home/grader
-	$ cd .ssh
-	$ sudo vi authorized_keys   and paste grader.pub
-	$ chmod 644 authorized_keys
    
 ## Configured timezone to UTC   
 	$ sudo dpkg-reconfigure tzdata
@@ -137,5 +140,6 @@ The application can be accessed at http://52.23.210.235.xip.io
 ##	How to run deployed application on server 
 	To run catalog application please go to http://52.23.210.235.xip.io on a web browser
 
-##	Reference used to deploy flask and configure apache2:
+##	Reference used to deploy flask application and configure apache2:
 	https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+	
